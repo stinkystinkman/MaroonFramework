@@ -26,10 +26,23 @@ public class OI extends Procedure {
 	}
 	
 	public void run(Context context) {
+		context.takeOwnership(Robot.drive);
+		context.takeOwnership(Robot.intake);
 		while (true) {
-			// Add driver controls here - make sure to take/release ownership
-			// of mechanisms when appropriate.
-			
+			Robot.drive.setArcadeDrive(m_joystick0.getAxis(1), m_joystick1.getAxis(0));
+
+			if (m_joystick0.getButtonPressed(1)) {
+				context.startAsync(new Launch());
+			}
+
+			if (m_joystick1.getButtonPressed(2)) {
+				Robot.intake.setIntakeArm(true);
+				Robot.intake.setIntakePower(1.0);
+			}
+			if (m_joystick1.getButtonPressed(3)) {
+				Robot.intake.setIntakeArm(false);
+				Robot.intake.setIntakePower(0.0);
+			}
 
 			context.waitFor(() -> RobotProvider.instance.hasNewDriverStationData());
 		}
