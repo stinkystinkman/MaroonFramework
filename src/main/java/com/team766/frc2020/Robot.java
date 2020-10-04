@@ -19,6 +19,7 @@ public class Robot extends MyRobot {
 	// Declare mechanisms here
 	public static Drive drive;
 	public static Launcher launcher;
+	public static Intake intake;
 	
 	private static OI m_oi;
 	
@@ -46,6 +47,7 @@ public class Robot extends MyRobot {
 		// Initialize mechanisms here
 		drive = new Drive();
 		launcher = new Launcher();
+		intake = new Intake();
 		
 		m_oi = new OI();
 	}
