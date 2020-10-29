@@ -4,6 +4,8 @@ import com.team766.framework.AutonomousProcedure;
 import com.team766.frc2020.procedures.*;
 
 public enum AutonomousModes {
+	@AutonomousProcedure(procedureClass = TurnAngle.class)
+	DriveAngle,
 	@AutonomousProcedure(procedureClass = DriveDistance.class)
 	DriveDistance,
 	@AutonomousProcedure(procedureClass = Score5.class)

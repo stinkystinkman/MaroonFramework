@@ -2,6 +2,7 @@ package com.team766.frc2020.mechanisms;
 
 import com.team766.framework.Mechanism;
 import com.team766.hal.EncoderReader;
+import com.team766.hal.GyroReader;
 import com.team766.hal.RobotProvider;
 import com.team766.hal.SpeedController;
 import com.team766.logging.Category;
@@ -11,6 +12,7 @@ public class Drive extends Mechanism {
 	private SpeedController m_rightMotor;
 	private EncoderReader m_leftEncoder;
 	private EncoderReader m_rightEncoder;
+	private GyroReader m_gyro;
 
 	public Drive() {
 		loggerCategory = Category.DRIVE;
@@ -19,6 +21,7 @@ public class Drive extends Mechanism {
 		m_rightMotor = RobotProvider.instance.getMotor("drive.rightMotor");
 		m_leftEncoder = RobotProvider.instance.getEncoder("drive.leftEncoder");
 		m_rightEncoder = RobotProvider.instance.getEncoder("drive.rightEncoder");
+		m_gyro = RobotProvider.instance.getGyro("drive.gyro");
 	}
 
 	public void setDrivePower(double leftPower, double rightPower) {
@@ -46,5 +49,17 @@ public class Drive extends Mechanism {
 
 		m_leftEncoder.reset();
 		m_rightEncoder.reset();
+	}
+
+	public void resetGyro() {
+		checkContextOwnership();
+
+		m_gyro.reset();
+	}
+
+	public double getGyroAngle() {
+		double angle = m_gyro.getAngle();
+		log("Gyro: " + angle);
+		return angle;
 	}
 }
