@@ -20,6 +20,7 @@ public class Robot extends MyRobot {
 	public static Drive drive;
 	public static Launcher launcher;
 	public static Intake intake;
+	public static LineSensors lineSensors;
 	
 	private static OI m_oi;
 	
@@ -48,7 +49,8 @@ public class Robot extends MyRobot {
 		drive = new Drive();
 		launcher = new Launcher();
 		intake = new Intake();
-		
+		lineSensors = new LineSensors();
+
 		m_oi = new OI();
 	}
 	
