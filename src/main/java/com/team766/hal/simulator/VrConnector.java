@@ -34,6 +34,7 @@ public class VrConnector implements Runnable {
 	private static final List<PortMapping> PWM_CHANNELS = Arrays.asList(
 		new PortMapping(10, 6), // Left motor
 		new PortMapping(11, 4), // Right motor
+		new PortMapping(14,1), // Auxiliary / Center Motor
 		new PortMapping(12, 0)  // Intake
 	);
 	private static final List<PortMapping> SOLENOID_CHANNELS = Arrays.asList(

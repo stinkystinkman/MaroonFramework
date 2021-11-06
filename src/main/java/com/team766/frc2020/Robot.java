@@ -17,7 +17,11 @@ import com.team766.web.WebServer;
 
 public class Robot extends MyRobot {
 	// Declare mechanisms here
-	
+	public static Drive drive;
+	public static Launcher launcher;
+	public static Intake intake;
+	public static Pincer pincer;
+	public static Elevator elevator;
 	
 	private static OI m_oi;
 	
@@ -43,9 +47,12 @@ public class Robot extends MyRobot {
 	@Override
 	public void robotInit() {
 		// Initialize mechanisms here
-		
-		
+		drive=new Drive();
+		launcher = new Launcher();
 		m_oi = new OI();
+		intake=new Intake();
+		pincer = new Pincer();
+		elevator = new Elevator();
 	}
 	
 	@Override

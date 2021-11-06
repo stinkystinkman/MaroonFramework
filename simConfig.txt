@@ -25,6 +25,12 @@
 	"intakeArm": {
 		"port": 0
 	},
+	"elevator": {
+		"port": 0
+	},
+	"gripper":{
+		"port": 1
+	},
 	"launch": {
 		"port": 1
 	},
